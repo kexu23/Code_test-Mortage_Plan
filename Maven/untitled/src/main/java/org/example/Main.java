@@ -1,12 +1,9 @@
 package org.example;
 
-import com.opencsv.CSVParserBuilder;
 import com.opencsv.CSVReader;
-import com.opencsv.CSVReaderBuilder;
 import com.opencsv.exceptions.CsvException;
 
 import javax.swing.*;
-import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
@@ -18,11 +15,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException, CsvException {
 
-        valueAssignment(readCSVopencsv());
-
-        
-
-
+        valueAssignment(readCSV());
 
     }
 
@@ -85,7 +78,7 @@ public class Main {
         return fc.getSelectedFile().getAbsolutePath();
     }
 
-    public static List<String[]> readCSVopencsv() throws IOException, CsvException {
+    public static List<String[]> readCSV() throws IOException, CsvException {
 
         List<String[]> r;
         try (CSVReader reader = new CSVReader(new FileReader(inputCSV()))) {

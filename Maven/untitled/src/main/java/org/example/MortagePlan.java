@@ -7,7 +7,7 @@ import static java.lang.Float.parseFloat;
 
 public class MortagePlan {
 
-    public static void valueAssignment(List<String[]> customerList){
+    public void valueAssignment(List<String[]> customerList){
 
         String[] customerInfo;
         String customer;
