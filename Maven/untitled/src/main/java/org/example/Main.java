@@ -6,6 +6,7 @@ import com.opencsv.exceptions.CsvException;
 import javax.swing.*;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -19,11 +20,11 @@ public class Main {
 
     }
 
-    public static void valueAssignment(List<String[]> customerList){
+    public static List<Double> valueAssignment(List<String[]> customerList){
 
+        List<String[]> finalList = new ArrayList<>();
         String[] customerInfo;
-        String customer;
-        String customerDetails;
+        List<Double> monthlypayments = new ArrayList<Double>();
 
         for (int i = 1; i < customerList.size(); i++) {
 
@@ -31,7 +32,7 @@ public class Main {
             if (customerInfo.length > 1) {
 
                 String name = customerInfo[0];
-                double total_loan = Float.parseFloat(customerInfo[1]);
+                double total_loan = parseFloat(customerInfo[1]);
                 double interest = 0.01 * parseFloat(customerInfo[2]);
                 int years = Integer.parseInt(customerInfo[3]);
                 double months = 12 * years;
@@ -52,15 +53,20 @@ public class Main {
                 System.out.println(name + " wants a loan of: " + total_loan + " for " + years + " years, which comes with " + 5 + "% of interest, which comes out to: " + monthlyPayment + "e a month");
                 System.out.println();
 
-                JOptionPane.showMessageDialog(null, "Name: " + name + "\n" + "Total Loan: " + total_loan + "\n" + "Years: " + years + "\n" + "Interest: " + 5 + "% \n" +"Monthly payment: " + monthlyPayment + "€");
+                monthlypayments.add(monthlyPayment);
+
+                JOptionPane.showMessageDialog(null, "Name: " + name + "\n" + "Total Loan: " + total_loan + "\n" + "Years: " + years + "\n" + "Interest: " + interest*100 + "% \n" +"Monthly payment: " + monthlyPayment + "€");
+
 
             }
             else {
                 //System.out.println("Empty");
                 continue;
+
             }
         }
 
+        return monthlypayments;
 
     }
 
