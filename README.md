@@ -1,2 +1,2 @@
 # Code_test-Mortage_Plan
-Task for crosskey work application
+The application I built should calculate the monthly payments of the customers listed in the prospects.txt
