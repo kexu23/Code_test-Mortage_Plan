@@ -6,6 +6,7 @@ import com.opencsv.exceptions.CsvException;
 import javax.swing.*;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -25,6 +26,7 @@ public class Main {
         List<String[]> finalList = new ArrayList<>();
         String[] customerInfo;
         List<Double> monthlypayments = new ArrayList<Double>();
+        DecimalFormat numberFormat = new DecimalFormat("#.00");
 
         for (int i = 1; i < customerList.size(); i++) {
 
@@ -50,12 +52,12 @@ public class Main {
                 double monthlyPayment = (total_loan*(interest * result)) / (result - 1);
 
 
-                System.out.println(name + " wants a loan of: " + total_loan + " for " + years + " years, which comes with " + 5 + "% of interest, which comes out to: " + monthlyPayment + "e a month");
+                System.out.println(name + " wants a loan of: " + total_loan + " for " + years + " years, which comes with " + 5 + "% of interest, which comes out to: " + numberFormat.format(monthlyPayment) + "e a month");
                 System.out.println();
 
                 monthlypayments.add(monthlyPayment);
 
-                JOptionPane.showMessageDialog(null, "Name: " + name + "\n" + "Total Loan: " + total_loan + "\n" + "Years: " + years + "\n" + "Interest: " + interest*100 + "% \n" +"Monthly payment: " + monthlyPayment + "€");
+                JOptionPane.showMessageDialog(null, "Name: " + name + "\n" + "Total Loan: " + total_loan + "\n" + "Years: " + years + "\n" + "Interest: " + interest*100 + "% \n" +"Monthly payment: " + numberFormat.format(monthlyPayment) + "€");
 
 
             }
